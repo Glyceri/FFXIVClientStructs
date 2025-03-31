@@ -9,6 +9,9 @@ namespace FFXIVClientStructs.FFXIV.Client.Game.Event;
 [GenerateInterop]
 [StructLayout(LayoutKind.Explicit, Size = 0x44A0)]
 public unsafe partial struct EventFramework {
+    [StaticAddress("4C 39 2D ?? ?? ?? ?? 74 14", 3, isPointer: true)]
+    public static partial EventFramework* Instance();
+
     [FieldOffset(0x00)] public EventHandlerModule EventHandlerModule;
     [FieldOffset(0xC0)] public DirectorModule DirectorModule;
     [FieldOffset(0x160)] public LuaActorModule LuaActorModule;
@@ -24,10 +27,7 @@ public unsafe partial struct EventFramework {
 
     [FieldOffset(0x42A8)] public DailyQuestMap DailyQuests;
 
-    [StaticAddress("4C 39 2D ?? ?? ?? ?? 74 14", 3, isPointer: true)]
-    public static partial EventFramework* Instance();
-
-    [MemberFunction("E8 ?? ?? ?? ?? 48 85 C0 75 E6 48 83 C4 20")]
+    [MemberFunction("E8 ?? ?? ?? ?? EB E0 41 81 E9")]
     public partial ContentDirector* GetContentDirector();
 
     [MemberFunction("E8 ?? ?? ?? ?? 0F B6 98")]
